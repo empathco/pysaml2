@@ -1626,9 +1626,6 @@ class SecurityContext(object):
         if verified or only_valid_cert:
             if not self.cert_handler.verify_cert(last_pem_file):
                 raise CertificateError('Invalid certificate!')
-        else:
-            raise SignatureError('Failed to verify signature')
-
         return item
 
     def check_signature(self, item, node_name=NODE_NAME, origdoc=None, must=False, issuer=None):
